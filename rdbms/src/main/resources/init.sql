@@ -1,6 +1,6 @@
 --liquibase formatted sql
 
---changeset rrmasgutov:init
+--changeset aleks:1
 
 create table account1
 (
@@ -8,5 +8,6 @@ create table account1
     amount int,
     version int
 );
+
 
 
