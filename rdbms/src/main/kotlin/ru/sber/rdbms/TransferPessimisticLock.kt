@@ -31,12 +31,12 @@ class TransferPessimisticLock {
                 }
                 if(amount1 - 100 > 0) {
                     val st3 =
-                        connection.prepareStatement("update account1 set amount = amount - $amount, version = version + 1 where id = $accountId1 ")
+                        connection.prepareStatement("update account1 set amount = amount - $amount where id = $accountId1 ")
                     st3.use { statement ->
                         statement.executeUpdate()
                     }
                     val st4 =
-                        connection.prepareStatement("update account1 set amount = amount + $amount, version = version + 1 where id = $accountId2 ")
+                        connection.prepareStatement("update account1 set amount = amount + $amount where id = $accountId2 ")
                     st4.use { statement ->
                         statement.executeUpdate()
                     }
